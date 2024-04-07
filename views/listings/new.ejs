@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+    <!-- This will include the below code inside div in boilplate.ejs where layout syntax is used -->
+    <!-- EJS Mate is used here -->
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h3>Create a new Listing</h3>
+            <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Enter Title</label>
+                    <input name="listing[title]" placeholder="Add a Catchy Title" type="text" class="form-control" required>
+                    <div class="valid-feedback">Tittle looks Good</div>
+                    <div class="invalid-feedback">Enter a valid title</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Enter Description"
+                        class="form-control" required></textarea>
+                    <div class="invalid-feedback">Enter a short description</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input name="listing[image]" type="file" class="form-control" required>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Enter Price</label>
+                        <input name="listing[price]" placeholder="1200" type="number" class="form-control" required>
+                        <div class="invalid-feedback">Enter a valid Price</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Enter Country</label>
+                        <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+                        <div class="invalid-feedback">Please enter country name</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Enter Location</label>
+                    <input name="listing[location]" placeholder="Jaipur, Rajasthan" type="text" class="form-control" required>
+                    <div class="invalid-feedback">Please enter the location</div>
+                </div>
+                <button class="btn btn-dark add-btn mt-3 mb-3">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 
+        Note that : Writing listing[title] , listing[description] , listing[image] .....and so on 
+        means that all these inputs will be grouped together under the listing object when the form data is sent to the server.
+     -->
